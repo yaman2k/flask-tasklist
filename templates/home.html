@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webex Task List Page</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar__brand">
+            <img src="https://www.webex.com/content/dam/wbx/us/images/hp/hp_74969/home_hero_btn_icon.png" alt="Webex Task List" class="navbar__logo">Webex Task List
+        </div>
+        <ul class="navbar__navigation">
+            <li class="navbar__navigation-item"><a href="#" class="navbar__link">Recent</a></li>
+            <li class="navbar__navigation-item"><a href="#" class="navbar__link">Webex</a></li>
+        </ul>
+    </header>
+    <main class="main">
+        <section>
+            <h1>Add New Entry</h1>
+            <form class="form" method="POST">
+                <p class="form__input">
+                    <label for="entry" class="form__label">Task Description: </label>
+                    <textarea name="content" id="entry" class="form__textarea"></textarea>
+                </p>
+                <button type="submit" class="form__submit">Add Task</button>
+                
+            </form>
+            </form>
+        </section>
+
+        <section>
+            <h1>Added Tasks</h1>
+            {% for entry in entries %}
+                <article class="entry">
+                    <div>
+                        <h2 class="entry__title">{{entry[0] | truncate(30, true)}}</h2>
+                        <time datetime="19-12-2020" class="entry__time" datetime="{{entry[1]}}">• {{entry[2]}}</time>
+                    </div>
+                    <p class="entry__content">
+                        {{entry[0]}}
+                    </p>
+                </article>
+            {% endfor %}
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="footer__content">
+            <section class="left_footer">
+                <a class="footer__item" href="#">LinkedIn Page</a>
+                <a href="#" class="footer__item">GitHub link</a>
+            </section>
+
+            <section class="right_footer">
+                <div class="footer__column">
+                    <a href="#" class="footer__item">Recent</a>
+                    <a href="#" class="footer__item">Webex</a>
+                </div>
+
+                <div class="footer__column">
+                    <a href="#" class="footer__item">About</a>
+                    <a href="#" class="footer__item">How to do this</a>
+                </div>
+
+            </section>
+    
+        </div>
+    </footer>
+</body>
+</html>
